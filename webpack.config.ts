@@ -1,9 +1,10 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+// import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { config } from 'dotenv';
 
@@ -77,15 +78,18 @@ const webpackConfig: webpack.Configuration = {
           : false,
     }),
     new CopyWebpackPlugin({ patterns: [{ from: 'src/assets', to: 'assets', noErrorOnMissing: true }] }),
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        configFile: './tsconfig.json',
-      },
-    }),
+    // new ForkTsCheckerWebpackPlugin({
+    //   typescript: {
+    //     configFile: './tsconfig.json',
+    //   },
+    // }),
     new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+    }),
   ],
-  devtool: isDevelopment ? 'source-map' : undefined,
+  devtool: isDevelopment ? 'source-map' : 'source-map',
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     historyApiFallback: true,
