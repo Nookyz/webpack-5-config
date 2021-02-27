@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Button from '@components/Button';
 
 const Home: React.FC = () => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
@@ -5,9 +6,7 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({ children, onClick }) => (
-  <CustomButton onClick={onClick}>
-    {children}
-  </CustomButton>
+  <CustomButton onClick={onClick}>{children}</CustomButton>
 );
 
 const CustomButton = styled.button`
