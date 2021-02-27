@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --config webpack.config.ts",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.ts",
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./"
   },
   "author": "",
