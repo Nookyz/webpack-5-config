@@ -37,7 +37,7 @@ const webpackConfig: webpack.Configuration = {
     path: outDir,
     publicPath: '/',
   },
-  entry: './src/index.tsx',
+  entry: ['babel-polyfill', './src/index.tsx'],
   module: {
     rules: [
       {
